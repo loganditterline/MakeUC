@@ -1,0 +1,28 @@
+{
+  "name": "makeuc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && nodemon server.js",
+    "client": "cd frontend && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loganditterline/MakeUC.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/loganditterline/MakeUC/issues"
+  },
+  "homepage": "https://github.com/loganditterline/MakeUC#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
+}
