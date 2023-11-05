@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link, Navigate } from "react-router-dom";
+
 import '../styles/side-nav.css'; // Update the path to your CSS file for styling
 
 const SideNav = (props) => {

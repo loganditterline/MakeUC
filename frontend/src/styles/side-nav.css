@@ -8,7 +8,7 @@
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 20px;
-    height: 100%;
+    height: 100vh;
 }
 
 .sidenav.open {

@@ -1,3 +1,9 @@
+.home-main-div {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
 .home-center-box {
     display: flex;
     flex-direction: column;

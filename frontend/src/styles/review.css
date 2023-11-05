@@ -1,0 +1,49 @@
+.review-main-div {
+    width: 70%;
+    margin-left: 5%;
+    padding-top: 5%;
+}
+.review-center-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.category h3 {
+    background-color: rgb(155, 214, 230);
+    width: 100%;
+    margin:0;
+    height: 40px;
+    line-height: 40px;
+    text-indent: 5px;
+}
+
+
+.subcategory {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f0f0f0; /* Set the default background color */
+    width: 100%;
+    height: 1%;
+  }
+  
+  .subcategory:nth-child(even) {
+    background-color: #e0e0e0; /* Set the background color for even rows */
+  }
+  
+
+.subcategory-name {
+    flex: 1;
+    text-align: left;
+    text-indent: 15px;
+}
+
+.subcategory-net {
+    text-align: right;
+    padding-right: 1%;
+}
+
+  

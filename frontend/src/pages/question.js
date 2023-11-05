@@ -23,10 +23,10 @@ function Question({ question, answerChoices, explanations, correctAnswer }) {
                     </div>
                 </div>
                 <div className="answer-choices">
-                    <AnswerChoice answer={ answerChoices[0] } explanation={ explanations[0] } correct={ correctAnswer == 0 }/>
-                    <AnswerChoice answer={ answerChoices[1] } explanation={ explanations[1] } correct={ correctAnswer == 1 }/>
-                    <AnswerChoice answer={ answerChoices[2] } explanation={ explanations[2] } correct={ correctAnswer == 2 }/>
-                    <AnswerChoice answer={ answerChoices[3] } explanation={ explanations[3] } correct={ correctAnswer == 3 }/>
+                    <AnswerChoice answer={ answerChoices[0] } explanation={ explanations[0] } correct={ correctAnswer === 0 }/>
+                    <AnswerChoice answer={ answerChoices[1] } explanation={ explanations[1] } correct={ correctAnswer === 1 }/>
+                    <AnswerChoice answer={ answerChoices[2] } explanation={ explanations[2] } correct={ correctAnswer === 2 }/>
+                    <AnswerChoice answer={ answerChoices[3] } explanation={ explanations[3] } correct={ correctAnswer === 3 }/>
                 </div>
             </div>
             <div className="next-button">
