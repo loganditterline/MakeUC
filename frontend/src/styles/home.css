@@ -1,3 +1,8 @@
+body {
+    background-color: #B5C99A;
+    color: #862B0D;
+}
+
 .home-main-div {
     display: flex;
     flex-direction: row;
@@ -13,6 +18,7 @@
 }
 
 .welcome-banner {
+    font-weight: bold;
     font-size: xx-large;
     margin-top: 5%;
     margin-bottom: 2%;
@@ -21,6 +27,15 @@
 button#daily-lesson {
     width: 60%;
     height: 10%;
+    color: #862B0D;
     border: none;
     font-size: x-large;
+    background-color: #FFC95F;
+    border: 1px #FFC95F solid;
+    border-radius: 5px;
+    margin-top:10%;
+}
+
+button#daily-lesson:hover {
+    background-color: #FFF9C9;
 }

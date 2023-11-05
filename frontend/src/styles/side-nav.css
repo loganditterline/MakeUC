@@ -4,7 +4,7 @@
     z-index: 12;
     top: 0;
     left: 0;
-    background-color: #333;
+    background-color: #862B0D;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 20px;
@@ -31,7 +31,7 @@
 }
 
 .toggle-button.open {
-    width: 40px; /* Adjust the width when the sidebar is open */
+    width: 40px;
 }
 
 .hamburger-icon {
@@ -52,14 +52,14 @@
 
 .nav-options a {
     text-decoration: none;
-    font-size: 18px;
+    font-size: 25px;
     color: white;
     margin-bottom: 10px;
     transition: 0.3s;
 }
 
 .nav-options a:hover {
-    color: yellow;
+    color: #FFC95F;
 }
 
 .line {

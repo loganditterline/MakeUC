@@ -44,7 +44,7 @@ function Master() {
     }
       
     
-    // Redirect when the condition is met
+    // // Redirect when the condition is met
     // const questions = [
     //     {
     //         question: "How many girls have you kissed?",
@@ -67,8 +67,6 @@ function Master() {
             goHome()
         }
     }
-
-    console.log(stats)
 
     return (
         <div className="master-main-div">

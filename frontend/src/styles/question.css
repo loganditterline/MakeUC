@@ -1,5 +1,6 @@
 body {
     height: 100vh;
+    background: #B5C99A;
 }
 
 .question-main-div {
@@ -23,8 +24,8 @@ body {
     display: flex;
     height: 45%;
     width: 70%;
-    background-color: rgb(155, 214, 230);
-    border-color: rgb(16, 113, 146);
+    background-color: #FFF9C9;
+    border-color: #FFC95F;
     border-width: 5px;
     border-radius: 10px;
     border-style: solid;
@@ -81,7 +82,7 @@ html, body, .page {
     right: 0;
     height: 100%;
     width: 80px;
-    background-color: rgb(155, 214, 230);
+    background-color: #FFF9C9;
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
     display: flex;
@@ -95,7 +96,7 @@ html, body, .page {
 }
 
 .next-button:hover {
-    background-color: #5fa0e0;
+    background-color: #FFC95F;
     transform: scale(1.25);
 }
 
