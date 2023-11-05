@@ -11,10 +11,10 @@ SAT Test Prep Helper is a project that generates new SAT-like questions for prac
 - Leaderboard
 
 ### User Registration
-Registration for our program is done using Auth0 a
+Registration for our program is done using Auth0, user data is stored in our MongoDB database
 
 ### Question Generation
-Our program generates hundreds of questions based on past SAT questions and feeds them to the user in a tailored program to bias their weaknesses more than their strengths.
+Our program generates hundreds of questions based on practice SAT questions scraped from the College Board Official Practice SAT website and from openAI's gpt3.5 Turbo LLM model and feeds them to the user in a tailored program to bias their weaknesses more than their strengths.
 
 ### Practice Mode
 With practice mode, users can enter a quick 10-question practice of randomly generated questions to improve their weaker points and work towards complete mastery.
