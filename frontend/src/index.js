@@ -1,33 +1,29 @@
-import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
-import './index.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home.js";
-import reportWebVitals from './reportWebVitals';
+import Question from "./pages/question.js";
 
-import {
-  createBrowserRouter,
-  createHashRouter,
-  RouterProvider,
-} from "react-router-dom";
+// Add this in node_modules/react-dom/index.js
+window.React1 = require('react');
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    children:[
-      {
-        path: "",
-        element: <Home/>,
-      },
-      {
-        path: "home",
-        element: <Home/>,
-      },
-    ]
-  },
-]);
+// Add this in your component file
+require('react-dom');
+window.React2 = require('react');
+console.log('hello')
+console.log(window.React1 === window.React2);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-);
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/">
+          <Route index element={<Home />} />
+          <Route path="home" element={<Home />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
