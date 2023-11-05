@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import '../styles/side-nav.css'; // Update the path to your CSS file for styling
+import '../styles/side-nav.css';
 
 const SideNav = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -21,8 +21,8 @@ const SideNav = (props) => {
             </button>
             {isOpen && (
                 <div className="nav-options">
-                    <a href="#profile">Profile</a>
-                    <a href="#leaderboard">Leaderboard</a>
+                    <Link to="/home">Home</Link>
+                    <Link to="/leaderboard">Leaderboard</Link>
                     <a href="#contact">Contact</a>
                 </div>
             )}

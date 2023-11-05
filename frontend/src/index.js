@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home.js";
 import Question from "./pages/question.js";
 import Master from "./pages/master.js";
+import Leaderboard from "./pages/leaderboard.js";
 
 // Add this in node_modules/react-dom/index.js
 window.React1 = require('react');
@@ -24,6 +25,10 @@ export default function App() {
         <Route path="/master">
           <Route index element={<Master />} />
           <Route path="master" element={<Master />} />
+        </Route>
+        <Route path="/leaderboard">
+          <Route index element={<Leaderboard />} />
+          <Route path="leaderboard" element={<Leaderboard />} />
         </Route>
       </Routes>
     </BrowserRouter>
