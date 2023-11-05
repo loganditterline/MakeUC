@@ -8,34 +8,34 @@ import { useNavigate } from 'react-router-dom/dist';
 function Master() {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
-    const [stats, setStats] = React.useState(null);
-    const [questions, setQuestions] = React.useState([]);
+    // const [stats, setStats] = React.useState(null);
+    // const [questions, setQuestions] = React.useState([]);
 
-    useEffect(() => {
-        // Send a POST request with the user ID in the request body
-        fetch('/user_score', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ id: 0 }),
-        }).then((res) => {
-            res.json().then((data) => {
-                setStats(data.message);
-            });
-        });
+    // useEffect(() => {
+    //     // Send a POST request with the user ID in the request body
+    //     fetch('/user_score', {
+    //       method: 'POST',
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //       },
+    //       body: JSON.stringify({ id: 0 }),
+    //     }).then((res) => {
+    //         res.json().then((data) => {
+    //             setStats(data.message);
+    //         });
+    //     });
 
-        fetch('/questions', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }).then((res) => {
-            res.json().then((data) => {
-                setQuestions(data.message);
-            });
-        });
-      }, []);
+    //     fetch('/questions', {
+    //       method: 'GET',
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //       },
+    //     }).then((res) => {
+    //         res.json().then((data) => {
+    //             setQuestions(data.message);
+    //         });
+    //     });
+    //   }, []);
 
     const navigate = useNavigate();
 
@@ -45,21 +45,21 @@ function Master() {
       
     
     // Redirect when the condition is met
-    // const questions = [
-    //     {
-    //         question: "How many girls have you kissed?",
-    //         answerChoices: ["one", "two", "three", "four"],
-    //         explanations: ["explain one", "explain two", "explain three", "explain four"],
-    //         correctAnswer: 'a',
-    //     },
-    //     {
-    //         question: "How many boys have you kissed?",
-    //         answerChoices: ["five", "six", "seven", "eight"],
-    //         explanations: ["explain five", "explain six", "explain seven", "explain eight"],
-    //         correctAnswer: 'b',
-    //     },
-    //     // Add more questions as needed
-    // ]
+    const questions = [
+        {
+            question: "How many girls have you kissed?",
+            answerChoices: ["one", "two", "three", "four"],
+            explanations: ["explain one", "explain two", "explain three", "explain four"],
+            correctAnswer: 'a',
+        },
+        {
+            question: "How many boys have you kissed?",
+            answerChoices: ["five", "six", "seven", "eight"],
+            explanations: ["explain five", "explain six", "explain seven", "explain eight"],
+            correctAnswer: 'b',
+        },
+        // Add more questions as needed
+    ]
 
     const handleNextQuestion = () => {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -67,9 +67,12 @@ function Master() {
             goHome()
         }
     }
-
-    console.log(stats)
-
+    const stats = {
+        "math": {
+            "math1": 1,
+            "math2": 2,
+        }
+    }
     return (
         <div className="master-main-div">
             <SideNav name='side-bar'></SideNav>
