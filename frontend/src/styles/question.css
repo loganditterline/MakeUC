@@ -20,6 +20,7 @@ body {
 }
 
 .question-box {
+    display: flex;
     height: 45%;
     width: 70%;
     background-color: rgb(155, 214, 230);
@@ -28,6 +29,8 @@ body {
     border-radius: 10px;
     border-style: solid;
     margin-top: 5%;
+    overflow-y: auto;
+    overflow-x: auto;
 }
 
 .centered-content {
@@ -35,11 +38,18 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
+    flex-direction: column;
+    overflow-y: auto;
 }
 
 .centered-content p {
     text-align: center;
-    font-size: 40px;
+    position: relative;
+}
+
+.centered-content figure {
+    text-align: center;
+    position: relative;
 }
 
 .answer-choices {

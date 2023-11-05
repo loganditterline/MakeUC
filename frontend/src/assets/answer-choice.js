@@ -36,13 +36,11 @@ const AnswerChoice = ({ answer, explanation, correct }) => {
             onClick={toggleActive}
         >
             {!isActive && (
-                <div className="answer">
-                    {answer}
+                <div className="answer" dangerouslySetInnerHTML={{ __html: answer}}>
                 </div>
             )}
             {isActive && explanation && (
-                <div className="explanation">
-                    {explanation}
+                <div className="explanation" dangerouslySetInnerHTML={{ __html: explanation}}>
                 </div>
             )}
         </div>

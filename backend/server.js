@@ -36,11 +36,32 @@ const client = new MongoClient(uri, {
 // }
 // run().catch(console.dir);
 
-app.get("/math_questions_count", (req, res) => {
+app.get("/questions", (req, res) => {
   client.connect().then(() => {
-    client.db('QuestionData').collection('math_questions').countDocuments().then(count => {
-      console.log('The count is', count);
-      res.json({ message: count });
+    let questions = [];
+    client.db('QuestionData').collection('math_questions').aggregate([{ $sample: { size: 2 } }]).toArray().then((sub_questions) => {
+      questions = questions.concat(sub_questions);
+      client.db('QuestionData').collection('ai_math_questions').aggregate([{ $sample: { size: 1 } }]).toArray().then((sub_questions) => {
+        questions = questions.concat(sub_questions);
+          client.db('QuestionData').collection('reading_writing_questions').aggregate([{ $sample: { size: 2 } }]).toArray().then((sub_questions) => {
+            questions = questions.concat(sub_questions);
+            client.db('QuestionData').collection('ai_reading_writing_questions').aggregate([{ $sample: { size: 1 } }]).toArray().then((sub_questions) => {
+              questions = questions.concat(sub_questions);
+
+              let formattedQuestions = [];
+              for(let i = 0; i < questions.length; i++) {
+                console.log('text:', questions[i].text == null, questions[i].text);
+                formattedQuestions[i] = {
+                  question: !questions[i].text ? questions[i].prompt : questions[i].text + questions[i].prompt,
+                  answerChoices: questions[i].answers,
+                  explanations: [questions[i].explanation, questions[i].explanation, questions[i].explanation, questions[i].explanation],
+                  correctAnswer: questions[i].correct
+                }
+              }
+              res.json({message: formattedQuestions})
+            });
+          });
+      });
     });
   });
 });

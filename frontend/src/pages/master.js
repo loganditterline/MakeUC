@@ -9,6 +9,7 @@ function Master() {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
     const [stats, setStats] = React.useState(null);
+    const [questions, setQuestions] = React.useState([]);
 
     useEffect(() => {
         // Send a POST request with the user ID in the request body
@@ -23,6 +24,17 @@ function Master() {
                 setStats(data.message);
             });
         });
+
+        fetch('/questions', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }).then((res) => {
+            res.json().then((data) => {
+                setQuestions(data.message);
+            });
+        });
       }, []);
 
     const navigate = useNavigate();
@@ -33,21 +45,21 @@ function Master() {
       
     
     // Redirect when the condition is met
-    const questions = [
-        {
-            question: "How many girls have you kissed?",
-            answerChoices: ["one", "two", "three", "four"],
-            explanations: ["explain one", "explain two", "explain three", "explain four"],
-            correctAnswer: 'a',
-        },
-        {
-            question: "How many boys have you kissed?",
-            answerChoices: ["five", "six", "seven", "eight"],
-            explanations: ["explain five", "explain six", "explain seven", "explain eight"],
-            correctAnswer: 'b',
-        },
-        // Add more questions as needed
-    ]
+    // const questions = [
+    //     {
+    //         question: "How many girls have you kissed?",
+    //         answerChoices: ["one", "two", "three", "four"],
+    //         explanations: ["explain one", "explain two", "explain three", "explain four"],
+    //         correctAnswer: 'a',
+    //     },
+    //     {
+    //         question: "How many boys have you kissed?",
+    //         answerChoices: ["five", "six", "seven", "eight"],
+    //         explanations: ["explain five", "explain six", "explain seven", "explain eight"],
+    //         correctAnswer: 'b',
+    //     },
+    //     // Add more questions as needed
+    // ]
 
     const handleNextQuestion = () => {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
@@ -62,16 +74,18 @@ function Master() {
         <div className="master-main-div">
             <SideNav name='side-bar'></SideNav>
 
-            {currentQuestionIndex < questions.length && (
-                <Question {...questions[currentQuestionIndex]} />
-            )}
-            {currentQuestionIndex === questions.length && (
-                <Review stats={stats} />
-            )}
+            {questions.length > 0 && (<>
+                {currentQuestionIndex < questions.length && (
+                    <Question {...questions[currentQuestionIndex]} />
+                )}
+                {currentQuestionIndex === questions.length && (
+                    <Review stats={stats} />
+                )}
 
-            <div className="next-button" onClick={handleNextQuestion}>
-                <span>Next</span>
-            </div>
+                <div className="next-button" onClick={handleNextQuestion}>
+                    <span>Next</span>
+                </div>
+            </>)}
         </div>
     );
 }

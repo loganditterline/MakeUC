@@ -2,17 +2,19 @@
     border-color: rgb(195, 0, 255);
     background-color: rgb(210, 155, 236);
     width: 40%;
-    height: 15%;
+    height: 25%;
     border-radius: 8px;
     margin: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: 0.3s;
+    overflow-y: auto;
+    overflow-x: auto;
+    padding: 5px;
 }
 
 .answer-choice.active {
-    transform: scale(1.5);
     transition: 0.3s;
 }
 
@@ -24,4 +26,8 @@
 .answer-choice.active.red {
     border-color: red;
     background-color: rgb(226, 140, 140);
+}
+
+.explanation {
+    height: 100%;
 }

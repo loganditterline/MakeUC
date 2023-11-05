@@ -4,11 +4,11 @@ import AnswerChoice from '../assets/answer-choice';
 
 function Question({ question, answerChoices, explanations, correctAnswer }) {
     // Convert letter answer to a number
-    if(correctAnswer === 'a') {
+    if(correctAnswer === 'a' || correctAnswer === 'A') {
         correctAnswer = 0
-    } else if(correctAnswer === 'b') {
+    } else if(correctAnswer === 'b' || correctAnswer === 'B') {
         correctAnswer = 1
-    } else if(correctAnswer === 'c') {
+    } else if(correctAnswer === 'c' || correctAnswer === 'C') {
         correctAnswer = 2
     } else {
         correctAnswer = 3
@@ -18,8 +18,7 @@ function Question({ question, answerChoices, explanations, correctAnswer }) {
         <div className="question-main-div">
             <div className="question-center-box">
                 <div className="question-box">
-                    <div className="centered-content">
-                        <p>{question}</p>
+                    <div className="centered-content" dangerouslySetInnerHTML={{ __html: question}}>
                     </div>
                 </div>
                 <div className="answer-choices">
