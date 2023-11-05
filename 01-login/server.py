@@ -29,7 +29,8 @@ if ENV_FILE:
 app = Flask(__name__)
 app.secret_key = env.get("APP_SECRET_KEY")
 
-def createQuestion():
+def createQuestion(type):
+    prompt
     
 
 oauth = OAuth(app)
