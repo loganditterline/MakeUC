@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import Home from './pages/home'
 import Question from './pages/question'
+import Master from './pages/master'
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Question />
+    <Master />
   </React.StrictMode>
 );
 
