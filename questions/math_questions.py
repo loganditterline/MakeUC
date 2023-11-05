@@ -12,6 +12,8 @@ class Question:
     correct: str
     reports: int
     views: int
+    domain: str
+    skill: str
     def __init__(self):
         self.reports = 0
         self.views = 0
@@ -74,7 +76,8 @@ def get_question(question_id, external_id_mode):
         q.explanation = answer_info['rationale'].strip()
         return q
 
-if __name__ == '__main__':
+# uses metadata in mongodb to push to our actual questions database for math
+def convert_metadata_to_questions():
     question_metadata = get_collection('QuestionData', 'math_metadata')
     math_questions = get_collection('QuestionData', 'math_questions')
     cursor = question_metadata.find()
@@ -89,6 +92,8 @@ if __name__ == '__main__':
             external_id_mode = False
         try:
             q = get_question(question_id, external_id_mode)
+            q.domain = document['primary_class_cd_desc']
+            q.skill = document['skill_desc']
             if q:
                 questions.append(asdict(q))
         except:
@@ -96,6 +101,9 @@ if __name__ == '__main__':
         total_count += 1
         print(len(questions), 'successfully converted of', total_count)
     math_questions.insert_many(questions)
+
+if __name__ == '__main__':
+    convert_metadata_to_questions()
     # q = get_question('022222-DC', False) # MC example
     # q = get_question('070615-DC', False) # non-MC example
     # q = get_question('07aee0d5-9ae6-4612-bbac-cad96d3eb3dd', True) # MC example
