@@ -1,8 +1,10 @@
-import requests
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 from typing import List
 
+import requests
+
 from mongo import get_collection
+
 
 @dataclass
 class Question:
