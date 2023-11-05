@@ -86,3 +86,8 @@ def convert_metadata_to_questions(type):
             total_count += 1
             print(len(questions), 'successfully converted of', total_count)
     questions_collection.insert_many(questions)
+
+# questions should be dicts, type is ai_math, math, ai_reading_writing, reading_writing
+def write_questions(type, questions):
+    questions_collection = get_collection('QuestionData', f'{type}_questions')
+    questions_collection.insert_many(questions)
