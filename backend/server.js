@@ -50,7 +50,6 @@ app.get("/questions", (req, res) => {
 
               let formattedQuestions = [];
               for(let i = 0; i < questions.length; i++) {
-                console.log('text:', questions[i].text == null, questions[i].text);
                 formattedQuestions[i] = {
                   question: !questions[i].text ? questions[i].prompt : questions[i].text + questions[i].prompt,
                   answerChoices: questions[i].answers,
@@ -72,20 +71,28 @@ app.post("/user_score", (req, res) => {
     client.db('UserData').collection('users').findOne({ id: id }).then((user) => {
       const stats = {
         "Reading and Writing": {
-          "Information and Ideas": user['Information and Ideas'],
+          "Information and Ideas": Math.floor(Math.random() * 10) - 5, // user['Information and Ideas'],
           "Craft and Structure": user['Craft and Structure'],
-          "Expression of Ideas": user['Expression of Ideas'],
+          "Expression of Ideas": Math.floor(Math.random() * 10) - 5, // user['Expression of Ideas'],
           "Standard English Conventions": user['Standard English Conventions']
         },
         "Math": {
-            "Algebra": user['Algebra'],
+            "Algebra": Math.floor(Math.random() * 10) - 5, // user['Algebra'],
             "Advanced Math": user['Advanced Math'],
-            "Problem-Solving and Data Analysis": user['Problem-Solving and Data Analysis'],
+            "Problem-Solving and Data Analysis": Math.floor(Math.random() * 10) - 5, // user['Problem-Solving and Data Analysis'],
             "Geometry and Trigonometry": user['Geometry and Trigonometry']
         }
       }
       res.json({ message: stats });
     });
+  });
+});
+
+app.post("/create_user", (req, res) => {
+  const id = req.body.id;
+  client.connect().then(() => {
+    client.db('UserData').collection('users').insertOne({ id: id });
+    res.json({ message: 'success' });
   });
 });
 

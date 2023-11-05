@@ -1,0 +1,14 @@
+.btn-margin{
+    border-radius: 10px;
+    background-color: yellow;
+    color: black;
+    border-color: black;
+}
+
+.btn-margin:hover{
+    border-radius: 10px;
+    background-color: black;
+    color: yellow;
+    transition: 0.5s;
+
+}
