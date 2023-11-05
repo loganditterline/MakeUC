@@ -1,0 +1,74 @@
+.sidenav {
+    width: 4%;
+    position: relative;
+    z-index: 12;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 20px;
+    height: 100%;
+}
+
+.sidenav.open {
+    width: 20%;
+}
+
+.toggle-button {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 40px; /* Increase the button width for a larger size */
+    height: 40px; /* Increase the button height for a larger size */
+    cursor: pointer;
+    color: white;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-button.open {
+    width: 40px; /* Adjust the width when the sidebar is open */
+}
+
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    width: 20px;
+}
+
+.nav-options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    padding-top: 40px;
+}
+
+.nav-options a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.nav-options a:hover {
+    color: yellow;
+}
+
+.line {
+    width: 20px;
+    height: 2px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+.line.open {
+    background-color: #f1f1f1;
+}
