@@ -1,0 +1,20 @@
+.home-center-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.welcome-banner {
+    font-size: xx-large;
+    margin-top: 5%;
+    margin-bottom: 2%;
+}
+
+button#daily-lesson {
+    width: 60%;
+    height: 10%;
+    border: none;
+    font-size: x-large;
+}
