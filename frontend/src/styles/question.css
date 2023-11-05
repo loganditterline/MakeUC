@@ -7,6 +7,7 @@ body {
     display: flex;
     flex-direction: row;
     width: 100vw;
+    user-select: none;
 }
 
 .question-center-box {
@@ -70,7 +71,7 @@ html, body, .page {
     right: 0;
     height: 100%;
     width: 80px;
-    background-color: #3498db;
+    background-color: rgb(155, 214, 230);
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
     display: flex;
@@ -85,11 +86,11 @@ html, body, .page {
 
 .next-button:hover {
     background-color: #5fa0e0;
-    transform: scale(1.05);
+    transform: scale(1.25);
 }
 
 .next-button span {
-    color: #fff;
+    color: black;
     font-size: 16px;
     font-weight: bold;
 }
