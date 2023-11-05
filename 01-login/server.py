@@ -42,8 +42,11 @@ def home():
 
 @app.route("/callback", methods=["GET", "POST"])
 def callback():
+    
     token = oauth.auth0.authorize_access_token()
-    print(token)
+    parsed_token = token['userinfo']['sub']
+    print(parsed_token[parsed_token.index('|')+1:])
+    
     session["user"] = token
     return redirect("/")
 
