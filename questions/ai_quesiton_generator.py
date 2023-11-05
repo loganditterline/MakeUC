@@ -1,18 +1,16 @@
 import pickle
 import random
-import re
 import time
-from dataclasses import dataclass
-from typing import List
 
 import openai
 
-from math_questions import Question
+from question import Question
 
 openai.api_key = "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"
 
 # @dataclass
 # class Question:
+#     text: str
 #     prompt: str
 #     answers: List[str]
 #     explanation: str
