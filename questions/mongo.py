@@ -2,10 +2,10 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 
 import os
-from dotenv import load_dotenv
 
 def get_collection(dbName, collectionName):
     # Load environment variables from the .env file
+    from dotenv import load_dotenv
     load_dotenv()
 
     # Access the environment variables in your script
