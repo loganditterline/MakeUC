@@ -8,7 +8,7 @@ function Home() {
             <SideNav name='this-one'></SideNav>
             <div className="home-center-box">
                 <div className="welcome-banner">🍌WELCOME TO BANANA CENTRAL🍌</div>
-                <button id="daily-lesson">Complete Your Daily Lesson</button>
+                <button id="daily-lesson" href="#master">Complete Your Daily Lesson</button>
             </div>
         </div>
     );
