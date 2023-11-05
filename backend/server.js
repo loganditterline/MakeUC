@@ -36,14 +36,36 @@ const client = new MongoClient(uri, {
 // }
 // run().catch(console.dir);
 
-app.get("/api", (req, res) => {
+app.get("/math_questions_count", (req, res) => {
   client.connect().then(() => {
     client.db('QuestionData').collection('math_questions').countDocuments().then(count => {
       console.log('The count is', count);
       res.json({ message: count });
     });
   });
+});
 
+app.post("/user_score", (req, res) => {
+  const id = req.body.id;
+  client.connect().then(() => {
+    client.db('UserData').collection('users').findOne({ id: id }).then((user) => {
+      const stats = {
+        "Reading and Writing": {
+          "Information and Ideas": user['Information and Ideas'],
+          "Craft and Structure": user['Craft and Structure'],
+          "Expression of Ideas": user['Expression of Ideas'],
+          "Standard English Conventions": user['Standard English Conventions']
+        },
+        "Math": {
+            "Algebra": user['Algebra'],
+            "Advanced Math": user['Advanced Math'],
+            "Problem-Solving and Data Analysis": user['Problem-Solving and Data Analysis'],
+            "Geometry and Trigonometry": user['Geometry and Trigonometry']
+        }
+      }
+      res.json({ message: stats });
+    });
+  });
 });
 
 app.listen(port, () => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Question from './question';
 import '../styles/master.css'
 import SideNav from '../assets/side-nav';
@@ -8,23 +8,27 @@ import { useNavigate } from 'react-router-dom/dist';
 function Master() {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
+    const [stats, setStats] = React.useState(null);
+
+    useEffect(() => {
+        // Send a POST request with the user ID in the request body
+        fetch('/user_score', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ id: 0 }),
+        }).then((res) => {
+            res.json().then((data) => {
+                setStats(data.message);
+            });
+        });
+      }, []);
+
     const navigate = useNavigate();
 
     const goHome = () => {
         navigate('/home'); 
-    }
-
-    const stats = {
-        "Reading and Writing": {
-            "Reading": 0,
-            "Writing": 1
-        },
-        "Math": {
-            "Algebra": 2,
-            "Advanced Math": -1,
-            "Problem-Solving and Data Analysis": 2,
-            "Geometry and Trigonometry": 5
-        }
     }
       
     
@@ -51,6 +55,8 @@ function Master() {
             goHome()
         }
     }
+
+    console.log(stats)
 
     return (
         <div className="master-main-div">
